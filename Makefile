@@ -8,6 +8,8 @@
 # @package WrzasqPl\Disqux
 ##
 
+YUI = vendor/YUI-Compressor/build/yuicompressor-2.4.8pre.jar
+
 # By default build the project.
 default: build
 
@@ -33,9 +35,11 @@ minify: disqus.min.js.gz
 
 # File specific rules.
 
-disqus.min.js: disqus.js
-	java -jar yuicompressor.jar $^ --charset utf-8 -o $@ --type js
+disqus.min.js: disqus.js $(YUI)
+	java -jar $(YUI) $^ --charset utf-8 -o $@ --type js
 
+$(YUI): init
+	
 # Genric rules.
 
 %.gz: %
