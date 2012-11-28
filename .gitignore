@@ -9,4 +9,4 @@
 /.project
 /.buildpath
 /.settings
-/disqus.min.js
+/disqus.min.js*
