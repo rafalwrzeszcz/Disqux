@@ -8,7 +8,8 @@
 
 # Disqux - XHTML-compilant Disqus embed script
 
-Disqus is a great service that take all comments-related scripts out of your shoulders, but it doesn't work in *real* XHTML applications (when the one is served with `application/html+xml` content type). Disqus team has even stated it clear, that [they WILL NOT care about XHTML support](https://groups.google.com/forum/?fromgroups=#!topic/disqus-dev/kaIyNK1kx8M).
+Disqus is a great service that takes all comments-related scripts out of your shoulders, but it doesn't work in *real* XHTML applications (when the one is served with `application/html+xml` content 
+type). Disqus team has even stated it clear, that [they WILL NOT care about XHTML support](https://groups.google.com/forum/?fromgroups=#!topic/disqus-dev/kaIyNK1kx8M).
 
 But it's not really a big deal - Disqus is loaded within *&lt;iframe&gt;* so all that needs to be XHTML-compatible is a loading script. **Disqux** is a drop-in replacement for original `embed.js` script that will allow to load Disqus in XHTML application.
 
@@ -25,14 +26,14 @@ Simply replace file URL and you can enjoy Disqus comments in your XHTML applicat
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '/path/to/your/disqus.js'; // THIS IS ALL YOU NEED TO DO
+        dsq.src = '/path/to/your/disqus.js'; // THIS IS ALL YOU NEED TO DO
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 ```
 
-You can see example on [my blog - http://wrzasq.pl/](http://wrzasq.pl/blog/chilldevviewhelpersbundle-php-templating-helpers-for-symfony-2.html#disqus_comments).
+You can see example on [my blog - http://wrzasq.pl/](http://wrzasq.pl/blog/chilldevviewhelpersbundle-php-templating-helpers-for-symfony-2.html#disqus_thread).
 
 ## Minification
 
