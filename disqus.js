@@ -1,3 +1,9 @@
+/**
+ * This file is just "de-minified" version of http://mediacdn.disqus.com/1354046062/build/next/embed.js
+ * it was fixed to work with XHTML application by Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>.
+ *
+ * Original file comes from Disqus <http://disqus.com/>.
+ */
 var DISQUS = function (d) {
     var c = d.DISQUS || {};
     c.AssertionError = function (b) {
