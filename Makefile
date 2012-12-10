@@ -3,12 +3,12 @@
 #
 # @author Rafał Wrzeszcz <rafal.wrzeszcz@wrzasq.pl>
 # @copyright 2012 © by Rafał Wrzeszcz - Wrzasq.pl.
-# @version 0.0.1
+# @version 0.0.2
 # @since 0.0.1
 # @package WrzasqPl\Disqux
 ##
 
-YUI = vendor/YUI-Compressor/build/yuicompressor-2.4.8pre.jar
+CLOSURE_COMPILER = closure/compiler.jar
 
 # By default build the project.
 default: build
@@ -27,19 +27,25 @@ clean:
 	rm -f disqus.min.js*
 
 # Initialize project structure.
-init:
-	git submodule update --init --recursive
+init: $(CLOSURE_COMPILER)
 
 # Build JavaScripts.
 minify: disqus.min.js.gz
 
 # File specific rules.
 
-disqus.min.js: disqus.js $(YUI)
-	java -jar $(YUI) $^ --charset utf-8 -o $@ --type js
+disqus.min.js: disqus.js $(CLOSURE_COMPILER)
+	java -jar $(CLOSURE_COMPILER) --js disqus.js --js_output_file $@
 
-$(YUI): init
-	
+$(CLOSURE_COMPILER): closure/compiler.zip
+	unzip $^ -d closure
+
+closure/compiler.zip: closure
+	wget http://closure-compiler.googlecode.com/files/compiler-latest.zip -O $@
+
+closure:
+	mkdir $@
+
 # Genric rules.
 
 %.gz: %

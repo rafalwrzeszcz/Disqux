@@ -1,3 +1,0 @@
-[submodule "vendor/YUI-Compressor"]
-	path = vendor/YUI-Compressor
-	url = https://github.com/yui/yuicompressor.git
